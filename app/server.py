@@ -9,7 +9,10 @@ from starlette.middleware.cors import CORSMiddleware
 from starlette.responses import HTMLResponse, JSONResponse
 from starlette.staticfiles import StaticFiles
 
-export_file_url = 'https://drive.google.com/uc?export=download&id=1xWiyV3_JwDgB0Cf9DX6G3qS6zGhARJRF'
+_sys_info = pickle_module.load(f,encoding='latin1')
+unpickler = pickle_module.Unpickler(f,encoding='latin1')
+
+export_file_url = 'https://drive.google.com/uc?export=download&id=1OyNhmKilO2X1BXTkKO13pJeHHWygyanq'
 export_file_name = 'export.pkl'
 
 classes = ['steinsopp',
