@@ -61,17 +61,16 @@ async def analyze(request):
     img_data = await request.form()
     img_bytes = await (img_data['file'].read())
     img = open_image(BytesIO(img_bytes))
-    prediction = learn.predict(img)[0]
+    #prediction = learn.predict(img)[0]
     
-    # Prediction for one image
-pred = learn_test.predict(img)
-print(pred[0])
-predclasses = pred[2]
-p = predclasses.tolist()
-dictpred = dict(zip(learn.data.classes, p))
-dictpred_sorted = {k: v for k, v in sorted(dictpred.items(), reverse=True, key=lambda x: x[1])}
-dictpred_sorted_top3 = list(islice(dictpred_sorted.items(), 3))
-    return JSONResponse({'result': str(dictpred_sorted_top3)})
+    # Prediction with three highest probabilities
+    pred = learn.predict(img)
+    predclasses = pred[2]
+    p = predclasses.tolist()
+    dictpred = dict(zip(learn.data.classes, p))
+    dictpred_sorted = {k: v for k, v in sorted(dictpred.items(), reverse=True, key=lambda x: x[1])}
+    dictpred_sorted_top3 = list(islice(dictpred_sorted.items(), 3))
+        return JSONResponse({'result': str(dictpred_sorted_top3)})
 #print(dictpred_sorted_top3)
     
 
