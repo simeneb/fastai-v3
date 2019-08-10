@@ -14,8 +14,8 @@ from starlette.staticfiles import StaticFiles
 #pickle.load = partial(pickle.load, encoding="latin1")
 #pickle.Unpickler = partial(pickle.Unpickler, encoding="latin1")
 
-#export_file_url = 'https://drive.google.com/uc?export=download&id=1l9NpwIXLxpagEq7l0oSLK0DqEuUH5H3k'
-#export_file_name = 'export.pkl'
+export_file_url = 'https://drive.google.com/uc?export=download&id=1l9NpwIXLxpagEq7l0oSLK0DqEuUH5H3k'
+export_file_name = 'export.pkl'
 
 classes = ['steinsopp', 'giftslørsopp', 'sort_trompetsopp', 'seig_kusopp', 'hvit_fluesopp', 'grønn_fluesopp', 'kantarell', 'gul_trompetsopp', 'rød_fluesopp']
 path = Path(__file__).parent
