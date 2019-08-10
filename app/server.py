@@ -70,7 +70,7 @@ async def analyze(request):
     dictpred = dict(zip(learn.data.classes, p))
     dictpred_sorted = {k: v for k, v in sorted(dictpred.items(), reverse=True, key=lambda x: x[1])}
     dictpred_sorted_top3 = list(islice(dictpred_sorted.items(), 3))
-        return JSONResponse({'result': str(dictpred_sorted_top3)})
+    return JSONResponse({'result': str(dictpred_sorted_top3)})
 #print(dictpred_sorted_top3)
     
 
