@@ -8,11 +8,7 @@ from starlette.applications import Starlette
 from starlette.middleware.cors import CORSMiddleware
 from starlette.responses import HTMLResponse, JSONResponse
 from starlette.staticfiles import StaticFiles
-
-#from functools import partial
-#import pickle
-#pickle.load = partial(pickle.load, encoding="latin1")
-#pickle.Unpickler = partial(pickle.Unpickler, encoding="latin1")
+from itertools import islice
 
 export_file_url = 'https://drive.google.com/uc?export=download&id=1l9NpwIXLxpagEq7l0oSLK0DqEuUH5H3k'
 export_file_name = 'export.pkl'
@@ -75,10 +71,10 @@ p = predclasses.tolist()
 dictpred = dict(zip(learn.data.classes, p))
 dictpred_sorted = {k: v for k, v in sorted(dictpred.items(), reverse=True, key=lambda x: x[1])}
 dictpred_sorted_top3 = list(islice(dictpred_sorted.items(), 3))
-
+    return JSONResponse({'result': str(dictpred_sorted_top3)})
 #print(dictpred_sorted_top3)
     
-    return JSONResponse({'result': str(dictpred_sorted_top3)})
+
 
 
 if __name__ == '__main__':
