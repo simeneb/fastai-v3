@@ -9,23 +9,15 @@ from starlette.middleware.cors import CORSMiddleware
 from starlette.responses import HTMLResponse, JSONResponse
 from starlette.staticfiles import StaticFiles
 
-from functools import partial
-import pickle
-pickle.load = partial(pickle.load, encoding="latin1")
-pickle.Unpickler = partial(pickle.Unpickler, encoding="latin1")
+#from functools import partial
+#import pickle
+#pickle.load = partial(pickle.load, encoding="latin1")
+#pickle.Unpickler = partial(pickle.Unpickler, encoding="latin1")
 
 export_file_url = 'https://drive.google.com/uc?export=download&id=1OyNhmKilO2X1BXTkKO13pJeHHWygyanq'
 export_file_name = 'export.pkl'
 
-classes = ['steinsopp',
- 'giftslørsopp',
- 'sort_trompetsopp',
- 'seig_kusopp',
- 'hvit_fluesopp',
- 'grønn_fluesopp',
- 'kantarell',
- 'gul_trompetsopp',
- 'rød_fluesopp']
+classes = ['steinsopp', 'giftslørsopp', 'sort_trompetsopp', 'seig_kusopp', 'hvit_fluesopp', 'grønn_fluesopp', 'kantarell', 'gul_trompetsopp', 'rød_fluesopp']
 path = Path(__file__).parent
 
 app = Starlette()
