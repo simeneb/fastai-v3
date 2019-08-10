@@ -9,7 +9,6 @@ from starlette.middleware.cors import CORSMiddleware
 from starlette.responses import HTMLResponse, JSONResponse
 from starlette.staticfiles import StaticFiles
 from itertools import islice
-from decimal import Decimal
 
 export_file_url = 'https://drive.google.com/uc?export=download&id=1l9NpwIXLxpagEq7l0oSLK0DqEuUH5H3k'
 export_file_name = 'export.pkl'
