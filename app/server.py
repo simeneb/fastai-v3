@@ -80,7 +80,7 @@ async def analyze(request):
     #y = json.dumps(x)
     
   
-    return JSONResponse({str(x)})
+    return JSONResponse({'result': str(x)})
 
     
 
