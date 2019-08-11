@@ -65,13 +65,18 @@ async def analyze(request):
     
     # Prediction with three highest probabilities
     pred = learn.predict(img)
-    predclasses = pred[2]
-    p = predclasses.tolist()
-    dictpred = dict(zip(learn.data.classes, p))
-    dictpred_sorted = {k: v for k, v in sorted(dictpred.items(), reverse=True, key=lambda x: x[1])}
-    dictpred_sorted_top3 = list(islice(dictpred_sorted.items(), 3))
-    return JSONResponse({'result': str(dictpred_sorted_top3)})
-#print(dictpred_sorted_top3)
+    p = pred[2].tolist()
+    listpred =  list(zip(learn.data.classes, p)) #  list of 2-tuples of classes and probabilties
+    listpred_sorted = sorted(listpred,key=lambda x:(x[1]), reverse=True) #  sorting of list based on probabilities, reverse order
+    listpred_top3 = listpred_sorted[:3]
+
+    pred1 = "{sopp}: {pred}%\n".format(sopp=listpred_sorted[0][0], pred=round(100*listpred_sorted[0][1],2))
+    pred2 = "{sopp}: {pred}%".format(sopp=listpred_sorted[1][0], pred=round(100*listpred_sorted[1][1],2))
+    pred3 = "{sopp}: {pred}%".format(sopp=listpred_sorted[2][0], pred=round(100*listpred_sorted[2][1],2))
+    
+  
+    return JSONResponse({'*Topp 3 klassifiseringer*\n'})
+
     
 
 
