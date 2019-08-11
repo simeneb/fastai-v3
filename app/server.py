@@ -76,7 +76,7 @@ async def analyze(request):
     pred3 = "{sopp}: {pred}%".format(sopp=listpred_sorted[2][0], pred=round(100*listpred_sorted[2][1],2))
     
     # convert into JSON:
-    x = pred1 + ", " + pred2 + ", " + pred3
+    x = "Topp 3 klassifikasjoner: " + pred1 + ", " + pred2 + ", " + pred3
     #y = json.dumps(x)
     
   
