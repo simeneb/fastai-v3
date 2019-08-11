@@ -29,7 +29,7 @@ function analyze() {
   xhr.onload = function(e) {
     if (this.readyState === 4) {
       var response = JSON.parse(e.target.responseText);
-      el("result-label").innerHTML = `${response["result"]}`;
+      el("result-label").innerHTML = `Topp-3 klassifiseringer = ${response["result"]}`;
     }
     el("analyze-button").innerHTML = "Analyze";
   };
