@@ -77,10 +77,10 @@ async def analyze(request):
     
     # convert into JSON:
     x = "Topp 3 klassifiseringer: " + pred1 + ", " + pred2 + ", " + pred3
-    y = json.dumps(x)
+    #y = json.dumps(x)
     
   
-    return JSONResponse({y})
+    return JSONResponse({x})
 
     
 
