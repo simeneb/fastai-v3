@@ -9,6 +9,7 @@ from starlette.middleware.cors import CORSMiddleware
 from starlette.responses import HTMLResponse, JSONResponse
 from starlette.staticfiles import StaticFiles
 from itertools import islice
+import json
 
 export_file_url = 'https://drive.google.com/uc?export=download&id=1l9NpwIXLxpagEq7l0oSLK0DqEuUH5H3k'
 export_file_name = 'export.pkl'
@@ -74,8 +75,12 @@ async def analyze(request):
     pred2 = "{sopp}: {pred}%".format(sopp=listpred_sorted[1][0], pred=round(100*listpred_sorted[1][1],2))
     pred3 = "{sopp}: {pred}%".format(sopp=listpred_sorted[2][0], pred=round(100*listpred_sorted[2][1],2))
     
+    # convert into JSON:
+    x = "Topp 3 klassifiseringer: " + pred1 + ", " + pred2 + ", " + pred3
+    y = json.dumps(x)
+    
   
-    return JSONResponse({'*Topp 3 klassifiseringer*\n'})
+    return JSONResponse({y})
 
     
 
